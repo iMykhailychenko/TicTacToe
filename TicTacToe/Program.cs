@@ -6,7 +6,9 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
-            Controller.Start();
+            var controller = new Controller();
+
+            controller.Start();
         }
     }
 }

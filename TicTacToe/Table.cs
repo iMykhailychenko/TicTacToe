@@ -1,41 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TicTacToe
 {
     public class Table
     {
-        private int tableLength;
-        private int rowLength;
+        private int length = 9;
+        private int rowLength = 3;
 
         public Cell[] GameField { get; private set; }
 
-        public Table(int length)
+        public Table()
         {
-            double row = Math.Sqrt(length);
+            GameField = new Cell[length];
 
-            if (row % 1 == 0)
+            for (int i = 0; i < length; i++)
             {
-                tableLength = length;
-                rowLength = (int)row;
-
-                GameField = new Cell[length];
-
-                for (int i = 0; i < length; i++)
-                {
-                    GameField[i] = new Cell(i);
-                }
-            }
-            else
-            {
-                throw new Exception("Invalid length. The playing field must be a square");
+                GameField[i] = new Cell(i);
             }
         }
 
         public void Render()
         {
-            for (int i = 0; i < tableLength; i++)
+            Console.Clear();
+
+            for (int i = 0; i < length; i++)
             {
-                if ((i + 1) % rowLength == 0)
+                if ((i + 1)  % rowLength == 0)
                 {
                     Console.WriteLine(GameField[i].State);
                 }
@@ -44,6 +35,29 @@ namespace TicTacToe
                     Console.Write(GameField[i].State);
                 }
             }
+        }
+
+        public void UpdateCell(int index, CellStateEnum type)
+        {
+            if (index < length)
+            {
+                GameField[index].SetState(type);
+            }
+        }
+
+        public List<int> EmtyCells()
+        {
+            var data = new List<int>();
+
+            for (int i = 0; i < length; i++)
+            {
+                if (GameField[i].isEmpty())
+                {
+                    data.Add(i);
+                }
+            }
+
+            return data;
         }
     }
 }
