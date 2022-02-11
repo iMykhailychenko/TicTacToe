@@ -45,13 +45,13 @@ namespace TicTacToe
             }
         }
 
-        public List<int> EmtyCells()
+        public List<int> GetEmtyCells()
         {
             var data = new List<int>();
 
             for (int i = 0; i < length; i++)
             {
-                if (GameField[i].isEmpty())
+                if (GameField[i].IsEmpty())
                 {
                     data.Add(i);
                 }

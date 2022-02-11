@@ -12,9 +12,8 @@ namespace TicTacToe
 
     public class Cell
     {
-        private Dictionary<CellStateEnum, string> CellEnumMap = new Dictionary<CellStateEnum, string>();
-
         public String State { get; private set; }
+        private Dictionary<CellStateEnum, string> CellEnumMap = new Dictionary<CellStateEnum, string>();
 
 
         public Cell(int index)
@@ -31,7 +30,7 @@ namespace TicTacToe
             State = CellEnumMap[value];
         }
 
-        public bool isEmpty()
+        public bool IsEmpty()
         {
            return CellEnumMap[CellStateEnum.EMPTY] == State;
         }
