@@ -13,7 +13,7 @@ namespace TicTacToe
     public class Cell
     {
         public String State { get; private set; }
-        private Dictionary<CellStateEnum, string> CellEnumMap = new Dictionary<CellStateEnum, string>();
+        private readonly Dictionary<CellStateEnum, string> CellEnumMap = new();
 
 
         public Cell(int index)

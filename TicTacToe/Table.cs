@@ -5,8 +5,8 @@ namespace TicTacToe
 {
     public class Table
     {
-        private int length = 9;
-        private int rowLength = 3;
+        private readonly int length = 9;
+        private readonly int rowLength = 3;
 
         public Cell[] GameField { get; private set; }
 

@@ -10,7 +10,7 @@ namespace TicTacToe
 
     public class Controller
     {
-        private Table table;
+        private readonly Table table;
         private bool isEnd = false;
         private RoleEnum whoseMove = RoleEnum.USER;
 
@@ -33,7 +33,7 @@ namespace TicTacToe
         private void GetUserMove()
         {
             Console.WriteLine("\nEnter the index: ");
-            int index = GameIO.GetCellIndex(table.EmtyCells());
+            int index = GameIO.GetCellIndex(table.GetEmtyCells());
 
             if (whoseMove == RoleEnum.USER)
             {
